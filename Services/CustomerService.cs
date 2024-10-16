@@ -13,12 +13,12 @@ namespace Services
         private readonly ICustomerRepository iCustomerRepository = new CustomerRepository();
         public void CreateCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            iCustomerRepository.CreateCustomer(customer);
         }
 
-        public void DeleteCustomer(Customer customer)
+        public void DeleteCustomer(int CustomerId)
         {
-            throw new NotImplementedException();
+            iCustomerRepository.DeleteCustomer(CustomerId);
         }
 
         public List<Customer> GetAllCustomer()
@@ -26,14 +26,14 @@ namespace Services
             return iCustomerRepository.GetAllCustomer();
         }
 
-        public Customer GetCustomerById(int id)
+        public Customer GetCustomerById(int CustomerId)
         {
-            throw new NotImplementedException();
+            return iCustomerRepository.GetCustomer(CustomerId);
         }
 
         public void UpdateCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            iCustomerRepository.UpdateCustomer(customer);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Services
     {
         void CreateCustomer(Customer customer);
         void UpdateCustomer(Customer customer);
-        void DeleteCustomer(Customer customer);
+        void DeleteCustomer(int customerId);
         List<Customer> GetAllCustomer();
         Customer GetCustomerById(int id);
     }

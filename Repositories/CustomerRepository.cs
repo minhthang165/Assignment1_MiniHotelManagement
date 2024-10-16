@@ -11,22 +11,15 @@ namespace Repositories
     public class CustomerRepository : ICustomerRepository
     {
         
-        public Customer CreateCustomer(Customer customer)
-        {
-            throw new NotImplementedException();
-        }
+        public void CreateCustomer(Customer customer) => CustomerDAO.CreateNewCustomer(customer);
 
-        public void DeleteCustomer(int CustomerID)
-        {
-            throw new NotImplementedException();
-        }
+        public void DeleteCustomer(int CustomerID) => CustomerDAO.DeleteCustomer(CustomerID);
 
         public List<Customer> GetAllCustomer() => CustomerDAO.GetAllCustomer();
 
-        public void UpdateCustomer(Customer customer)
-        {
-            throw new NotImplementedException();
-        }
+        public Customer GetCustomer(int CustomerID) => CustomerDAO.GetCustomer(CustomerID); 
+
+        public void UpdateCustomer(Customer customer) => CustomerDAO.UpdateCustomer(customer);
         
     }
 

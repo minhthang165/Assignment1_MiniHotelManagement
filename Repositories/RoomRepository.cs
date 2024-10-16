@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer
+namespace Repositories
 {
-    internal class RoomInformationDAO
+    internal class RoomRepository
     {
     }
 }

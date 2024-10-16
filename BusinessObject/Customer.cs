@@ -39,6 +39,8 @@ namespace BusinessObject
             CustomerBirthday = customerBirthday;
             CustomerStatus = customerStatus;
         }
+
+        public Customer() { }
         public override string ToString()
         {
             return $"{CustomerFullName} - {EmailAddress} - {Telephone}";
