@@ -17,7 +17,19 @@ namespace BusinessObject
 
 
         public RoomInformation(int roomID, string roomNumber, string roomDescription, int roomMaxCapacity, 
-            RoomStatus roomStatus, decimal roomPricePerDate, int roomTypeID, RoomType roomType)
+            RoomStatus roomStatus, decimal roomPricePerDate, string RoomTypeName)
+        {
+            RoomID = roomID;
+            RoomNumber = roomNumber;
+            RoomDescription = roomDescription;
+            RoomMaxCapacity = roomMaxCapacity;
+            RoomStatus = roomStatus;
+            RoomPricePerDate = roomPricePerDate;
+            RoomTypeName = RoomTypeName;
+            
+        }
+
+        public RoomInformation(int roomID, string roomNumber, string roomDescription, int roomMaxCapacity, RoomStatus roomStatus, decimal roomPricePerDate, int roomTypeID)
         {
             RoomID = roomID;
             RoomNumber = roomNumber;
@@ -26,8 +38,9 @@ namespace BusinessObject
             RoomStatus = roomStatus;
             RoomPricePerDate = roomPricePerDate;
             RoomTypeID = roomTypeID;
-            RoomType = roomType;
         }
+
+        public RoomInformation() { }
     }
 
 }

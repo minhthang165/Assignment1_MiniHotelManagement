@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories
+namespace Services
 {
-    public interface IRoomRepository
+    public interface IRoomService
     {
         void CreateNewRoom(RoomInformation room);
         List<RoomInformation> GetAllRoom();
         RoomInformation GetRoom(int roomId);
-        void UpdateRoom(RoomInformation room);
+        void UpdateRoom(RoomInformation room); 
         void DeleteRoom(int roomId);
     }
 }

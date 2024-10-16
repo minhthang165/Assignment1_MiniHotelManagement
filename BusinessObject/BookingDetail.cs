@@ -22,5 +22,7 @@ namespace BusinessObject
             EndDate = endDate;
             ActualPrice = actualPrice;
         }
+
+        public BookingDetail() { }
     }
 }

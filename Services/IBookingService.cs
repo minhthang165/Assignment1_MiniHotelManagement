@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repositories
+namespace Services
 {
-    public interface IBookingRepository
+    public interface IBookingService
     {
         void BookRoom(BookingReservation booking, BookingDetail bookingDetails);
     }

@@ -28,5 +28,7 @@ namespace BusinessObject
             Customer = customer;
             BookedRooms = bookedRooms;
         }
+
+        public BookingReservation() { }
     }
 }

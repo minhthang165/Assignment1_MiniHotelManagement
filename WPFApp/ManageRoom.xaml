@@ -1,0 +1,47 @@
+﻿<Window x:Class="WPFApp.ManageRoom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Room Management" Height="500" Width="800">
+    <Grid Margin="0,0,0,-91">
+        <!-- Listbox to display room list -->
+        <ListBox x:Name="RoomListBox" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="500" 
+                 DisplayMemberPath="RoomNumber" SelectionChanged="RoomListBox_SelectionChanged"/>
+
+        <!-- Buttons for CRUD operations -->
+        <Button Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,10,0,0" Width="100" Click="CreateRoom_Click"/>
+        <Button Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,50,0,0" Width="100" Click="UpdateRoom_Click"/>
+        <Button Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,90,0,0" Width="100" Click="DeleteRoom_Click"/>
+
+        <!-- Form for room details -->
+        <TextBlock Text="Room Number:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,320,0,0"/>
+        <TextBox x:Name="RoomNumberTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="120,320,0,0"/>
+
+        <TextBlock Text="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,350,0,0"/>
+        <TextBox x:Name="DescriptionTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="120,350,0,0"/>
+
+        <TextBlock Text="Max Capacity:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,380,0,0"/>
+        <TextBox x:Name="MaxCapacityTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="120,380,0,0"/>
+
+        <TextBlock Text="Room Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,410,0,0"/>
+        <TextBox x:Name="RoomStatusTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="120,411,0,0"/>
+        <ComboBox x:Name="RoomStatusComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="54" Margin="339,409,0,0"/>
+
+        <TextBlock Text="Price per Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,442,0,0"/>
+        <TextBox x:Name="PriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="120,440,0,0"/>
+
+        <TextBlock Text="Room Type ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="355,350,0,0"/>
+        <ComboBox x:Name="RoomTypeComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="511,348,0,0">
+            <ComboBoxItem Content="1" />
+            <ComboBoxItem Content="2" />
+            <ComboBoxItem Content="3" />
+            <ComboBoxItem Content="4" />
+            <ComboBoxItem Content="5" />
+            <ComboBoxItem Content="6" />
+            <ComboBoxItem Content="7" />
+        </ComboBox>
+
+        <!-- Search Field -->
+        <TextBlock Text="Search by Room Number:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="355,320,0,0"/>
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="511,320,0,0" KeyUp="SearchTextBox_KeyUp"/>
+    </Grid>
+</Window>

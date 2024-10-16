@@ -1,0 +1,34 @@
+﻿<Window x:Class="WPFApp.ManageBooking"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Booking Management" Height="500" Width="800">
+    <Grid Margin="0,0,0,-41">
+        <!-- Listbox to display booking list -->
+        <ListBox x:Name="BookingListBox" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="500" 
+                 DisplayMemberPath="BookingDetails" SelectionChanged="BookingListBox_SelectionChanged"/>
+
+        <!-- Buttons for Booking operations -->
+        <Button Content="Booking Now" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,10,0,0" Width="100" Click="CreateBooking_Click"/>
+
+        <!-- Form for booking details -->
+        <TextBlock Text="Booking Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,320,0,0"/>
+        <DatePicker x:Name="BookingDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,320,0,0"/>
+
+        <TextBlock Text="Total Price:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,350,0,0"/>
+        <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,350,0,0"/>
+
+        <TextBlock Text="Customer ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,380,0,0"/>
+        <TextBox x:Name="CustomerIDTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,380,0,0"/>
+
+        <TextBlock Text="Booking Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,410,0,0"/>
+        <ComboBox x:Name="BookingStatusComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,410,0,0">
+            <ComboBoxItem Content="Pending"/>
+            <ComboBoxItem Content="Confirmed"/>
+            <ComboBoxItem Content="Cancelled"/>
+        </ComboBox>
+
+        <!-- Search Field -->
+        <TextBlock Text="Search by Booking Details:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,320,0,0"/>
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="420,320,0,0" KeyUp="SearchTextBox_KeyUp"/>
+    </Grid>
+</Window>

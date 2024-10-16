@@ -10,7 +10,6 @@ namespace Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        
         public void CreateCustomer(Customer customer) => CustomerDAO.CreateNewCustomer(customer);
 
         public void DeleteCustomer(int CustomerID) => CustomerDAO.DeleteCustomer(CustomerID);
