@@ -10,7 +10,7 @@ namespace Services
 {
     public class CustomerService : ICustomerService
     {
-        private readonly ICustomerRepository iCustomerRepository;
+        private readonly ICustomerRepository iCustomerRepository = new CustomerRepository();
         public void CreateCustomer(Customer customer)
         {
             throw new NotImplementedException();

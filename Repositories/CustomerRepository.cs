@@ -10,7 +10,7 @@ namespace Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {
-        CustomerDAO customerDAO = new CustomerDAO();
+        
         public Customer CreateCustomer(Customer customer)
         {
             throw new NotImplementedException();
@@ -21,10 +21,7 @@ namespace Repositories
             throw new NotImplementedException();
         }
 
-        public List<Customer> GetAllCustomer()
-        {
-            return customerDAO.GetAllCustomer();
-        }
+        public List<Customer> GetAllCustomer() => CustomerDAO.GetAllCustomer();
 
         public void UpdateCustomer(Customer customer)
         {

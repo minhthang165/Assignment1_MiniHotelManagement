@@ -8,7 +8,7 @@ namespace DataAccessLayer
     public class CustomerDAO
     {
         private static string SELECT_ALL_CUSTOMERS = "SELECT * FROM [dbo].[Customer]";
-        public List<Customer> GetAllCustomer()
+        public static List<Customer> GetAllCustomer()
         {
             List<Customer> list = new List<Customer>();
             DataTable dataTable = DBContext.ExecuteQuery(SELECT_ALL_CUSTOMERS);
