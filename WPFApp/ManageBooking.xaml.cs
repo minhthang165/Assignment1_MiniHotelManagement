@@ -1,6 +1,7 @@
 ﻿using BusinessObject;
 using BusinessObject.Enums;
 using DataAccessLayer;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,24 +13,26 @@ namespace WPFApp
     public partial class ManageBooking : Window
     {
         private List<BookingReservation> bookings;
+        private readonly BookingService _bookingService;
 
         public ManageBooking()
         {
             InitializeComponent();
-            //LoadBookings();
+            _bookingService = new BookingService();
+            LoadBookings();
         }
 
-        //private void LoadBookings()
-        //{
-        //    bookings = BookingDAO.GetAllBookings(); // Replace with your method to get all bookings
-        //    BookingListBox.ItemsSource = bookings;
-        //}
+        private void LoadBookings()
+        {
+            bookings = _bookingService.GetALlBooking();
+            BookingListBox.ItemsSource = bookings;
+        }
 
         private void BookingListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (BookingListBox.SelectedItem is BookingReservation selectedBooking)
             {
-                BookingDatePicker.SelectedDate = selectedBooking.BookingDate;
+                StartDatePicker.SelectedDate = selectedBooking.BookingDate;
                 TotalPriceTextBox.Text = selectedBooking.TotalPrice.ToString("F2");
                 CustomerIDTextBox.Text = selectedBooking.CustomerID.ToString();
                 BookingStatusComboBox.SelectedItem = BookingStatusComboBox.Items
@@ -38,33 +41,34 @@ namespace WPFApp
             }
         }
 
-        //private void CreateBooking_Click(object sender, RoutedEventArgs e)
-        //{
-        //    BookingReservation newBooking = new BookingReservation()
-        //    {
-        //        BookingDate = BookingDatePicker.SelectedDate.Value,
-        //        TotalPrice = decimal.Parse(TotalPriceTextBox.Text),
-        //        CustomerID = int.Parse(CustomerIDTextBox.Text),
-        //        BookingStatus = (BookingStatus)((ComboBoxItem)BookingStatusComboBox.SelectedItem).Content
-        //    };
+        private void CreateBooking_Click(object sender, RoutedEventArgs e)
+        {
+            BookingReservation newBooking = new BookingReservation()
+            {
+                BookingReservationID = int.Parse(BookingReservationIDTextBox.Text),
+                BookingDate = StartDatePicker.SelectedDate.Value,
+                TotalPrice = decimal.Parse(TotalPriceTextBox.Text),
+                CustomerID = int.Parse(CustomerIDTextBox.Text),
+                BookingStatus = (BookingStatus)Enum.Parse(typeof(BookingStatus), (BookingStatusComboBox.SelectedItem as ComboBoxItem).Content.ToString())
+            };
 
-        //    BookingDetail newBookingDetail = new BookingDetail()
-        //    {
-        //        StartDate = StartDatePicker.SelectedDate.Value,
-        //        EndDate = EndDatePicker.SelectedDate.Value,
-        //        ActualPrice = decimal.Parse(TotalPriceTextBox.Text),
-        //        RoomID = int.Parse(CustomerIDTextBox.Text), 
-                
-        //    };
+            BookingDetail newBookingDetail = new BookingDetail()
+            {
+                BookingReservationID = int.Parse(BookingReservationIDTextBox.Text),
+                RoomID = int.Parse((RoomIDComboBox.SelectedItem as ComboBoxItem).Content.ToString()),
+                StartDate = StartDatePicker.SelectedDate.Value,
+                EndDate = EndDatePicker.SelectedDate.Value,
+                ActualPrice = decimal.Parse(ActualPriceTextBox.Text)
+            };
 
-        //    BookingDAO.BookingRoom(newBooking); 
-        //    //LoadBookings();
-        //    ClearForm();
-        //}
+            _bookingService.BookRoom(newBooking, newBookingDetail);
+            LoadBookings();
+        }
 
         private void ClearForm()
         {
-            BookingDatePicker.SelectedDate = null;
+            StartDatePicker.SelectedDate = null;
+            EndDatePicker.SelectedDate = null;
             TotalPriceTextBox.Clear();
             CustomerIDTextBox.Clear();
             BookingStatusComboBox.SelectedIndex = -1;

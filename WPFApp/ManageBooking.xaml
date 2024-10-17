@@ -5,20 +5,29 @@
     <Grid Margin="0,0,0,-41">
         <!-- Listbox to display booking list -->
         <ListBox x:Name="BookingListBox" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="500" 
-                 DisplayMemberPath="BookingDetails" SelectionChanged="BookingListBox_SelectionChanged"/>
+                 DisplayMemberPath="BookingReservationID" SelectionChanged="BookingListBox_SelectionChanged"/>
 
         <!-- Buttons for Booking operations -->
         <Button Content="Booking Now" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,10,0,0" Width="100" Click="CreateBooking_Click"/>
 
         <!-- Form for booking details -->
-        <TextBlock Text="Booking Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,320,0,0"/>
-        <DatePicker x:Name="BookingDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,320,0,0"/>
+        <TextBlock Text="Start Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,320,0,0"/>
+        <DatePicker x:Name="StartDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="100,320,0,0"/>
+
+        <TextBlock Text="End Date:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="234,324,0,0"/>
+        <DatePicker x:Name="EndDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="300,320,0,0"/>
 
         <TextBlock Text="Total Price:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,350,0,0"/>
         <TextBox x:Name="TotalPriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,350,0,0"/>
 
+        <TextBlock Text="Actual Price:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="323,350,0,0"/>
+        <TextBox x:Name="ActualPriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="460,348,0,0"/>
+
         <TextBlock Text="Customer ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,380,0,0"/>
         <TextBox x:Name="CustomerIDTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,380,0,0"/>
+
+        <TextBlock Text="Booking Reservation ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,380,0,0"/>
+        <TextBox x:Name="BookingReservationIDTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="460,378,0,0"/>
 
         <TextBlock Text="Booking Status:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,410,0,0"/>
         <ComboBox x:Name="BookingStatusComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,410,0,0">
@@ -26,9 +35,13 @@
             <ComboBoxItem Content="Confirmed"/>
             <ComboBoxItem Content="Cancelled"/>
         </ComboBox>
-
-        <!-- Search Field -->
-        <TextBlock Text="Search by Booking Details:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,320,0,0"/>
-        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="420,320,0,0" KeyUp="SearchTextBox_KeyUp"/>
+        <TextBlock Text="Room ID:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,445,0,0"/>
+        <ComboBox x:Name="RoomIDComboBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="100,445,0,0">
+            <ComboBoxItem Content="1" />
+            <ComboBoxItem Content="2" />
+            <ComboBoxItem Content="3" />
+            <ComboBoxItem Content="4" />
+            <ComboBoxItem Content="5" />
+        </ComboBox>
     </Grid>
 </Window>

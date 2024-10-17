@@ -15,5 +15,10 @@ namespace Services
         {
             iBookingRepository.BookRoom(booking, bookingDetails);
         }
+
+        public List<BookingReservation> GetALlBooking()
+        {
+            return iBookingRepository.GetAllBooking();
+        }
     }
 }

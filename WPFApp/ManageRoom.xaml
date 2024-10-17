@@ -5,7 +5,7 @@
     <Grid Margin="0,0,0,-91">
         <!-- Listbox to display room list -->
         <ListBox x:Name="RoomListBox" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="500" 
-                 DisplayMemberPath="RoomNumber" SelectionChanged="RoomListBox_SelectionChanged"/>
+                 DisplayMemberPath="RoomID" SelectionChanged="RoomListBox_SelectionChanged"/>
 
         <!-- Buttons for CRUD operations -->
         <Button Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,10,0,0" Width="100" Click="CreateRoom_Click"/>

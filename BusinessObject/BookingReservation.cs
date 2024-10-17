@@ -30,5 +30,34 @@ namespace BusinessObject
         }
 
         public BookingReservation() { }
+
+        public BookingReservation(int bookingReservationID, DateTime bookingDate, decimal totalPrice, BookingStatus status, string customerFullName)
+        {
+            BookingReservationID = bookingReservationID;
+            BookingDate = bookingDate;
+            TotalPrice = totalPrice;
+            BookingStatus = status;
+            Customer customer = new Customer();
+            customer.CustomerFullName = customerFullName;
+        }
+
+        public BookingReservation(int bookingReservationID, DateTime bookingDate, decimal totalPrice, BookingStatus status, int customerId)
+        {
+            BookingReservationID = bookingReservationID;
+            BookingDate = bookingDate;
+            TotalPrice = totalPrice;
+            BookingStatus = status;
+            CustomerID = customerId;
+        }
+
+
+        //public override string? ToString()
+        //{
+        //    return  $"Booking ID: {BookingReservationID}, " +
+        //            $"Date: {BookingDate.ToShortDateString()}, " +
+        //            $"Customer: {Customer.CustomerFullName}, " +
+        //            $"Total Price: {TotalPrice:C}, " + 
+        //            $"Status: {BookingStatus}";
+        //}
     }
 }

@@ -17,18 +17,18 @@ namespace WPFApp
         public ManageRoom()
         {
             InitializeComponent();
-            _roomService = new RoomService(); // Use DI in the future, this is for simplicity now
+            _roomService = new RoomService();
             LoadRooms();
         }
 
-        // Load all rooms into the listbox
+
         private void LoadRooms()
         {
             List<RoomInformation> rooms = _roomService.GetAllRoom();
             RoomListBox.ItemsSource = rooms;
         }
 
-        // When a room is selected, populate the fields
+
         private void RoomListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (RoomListBox.SelectedItem is RoomInformation room)
@@ -42,7 +42,7 @@ namespace WPFApp
             }
         }
 
-        // Create new room
+
         private void CreateRoom_Click(object sender, RoutedEventArgs e)
         {
             if (RoomTypeComboBox.SelectedItem == null)
@@ -57,16 +57,16 @@ namespace WPFApp
                 RoomDescription = DescriptionTextBox.Text,
                 RoomMaxCapacity = int.Parse(MaxCapacityTextBox.Text),
                 RoomStatus = (RoomStatus)RoomStatusComboBox.SelectedItem,
-                RoomPricePerDate = 0, // Default or other field not shown
-                RoomTypeID = int.Parse((RoomTypeComboBox.SelectedItem as ComboBoxItem).Content.ToString()) // Assuming RoomTypeName corresponds to the selected ID
+                RoomPricePerDate = 0, 
+                RoomTypeID = int.Parse((RoomTypeComboBox.SelectedItem as ComboBoxItem).Content.ToString()) 
 
             };
 
             _roomService.CreateNewRoom(newRoom);
-            LoadRooms(); // Reload the room list
+            LoadRooms();
         }
 
-        // Update selected room
+
         private void UpdateRoom_Click(object sender, RoutedEventArgs e)
         {
             if (_selectedRoom != null)
@@ -78,7 +78,7 @@ namespace WPFApp
                 _selectedRoom.RoomPricePerDate = decimal.Parse(PriceTextBox.Text);
 
                 _roomService.UpdateRoom(_selectedRoom);
-                LoadRooms(); // Reload the room list
+                LoadRooms(); 
             }
             else
             {
@@ -86,13 +86,12 @@ namespace WPFApp
             }
         }
 
-        // Delete selected room
         private void DeleteRoom_Click(object sender, RoutedEventArgs e)
         {
             if (_selectedRoom != null)
             {
                 _roomService.DeleteRoom(_selectedRoom.RoomID);
-                LoadRooms(); // Reload the room list
+                LoadRooms();
             }
             else
             {
@@ -100,7 +99,6 @@ namespace WPFApp
             }
         }
 
-        // Search rooms by number
         private void SearchTextBox_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
         {
             string searchText = SearchTextBox.Text.ToLower();

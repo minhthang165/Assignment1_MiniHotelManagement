@@ -37,7 +37,7 @@ namespace WPFApp
             CustomerListBox.ItemsSource = customers;
         }
 
-        // When a customer is selected, populate the fields
+       
         private void CustomerListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (CustomerListBox.SelectedItem is Customer customer)
@@ -66,9 +66,9 @@ namespace WPFApp
                 CustomerFullName = FullNameTextBox.Text,
                 Telephone = TelephoneTextBox.Text,
                 EmailAddress = EmailTextBox.Text,
-                CustomerBirthday = BirthdayPicker.SelectedDate ?? DateTime.Now, // Default to today if no date selected
-                CustomerStatus = CustomerStatus.Active, // Default to active
-                Password = password // Consider adding password fields
+                CustomerBirthday = BirthdayPicker.SelectedDate ?? DateTime.Now,
+                CustomerStatus = CustomerStatus.Active, 
+                Password = password 
             };
 
             _customerService.CreateCustomer(newCustomer);
