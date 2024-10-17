@@ -21,7 +21,7 @@ namespace DataAccessLayer
         private static string DETAIL_BOOKING_QUERY = "INSERT INTO BookingDetail (BookingReservationID, RoomID, StartDate, EndDate, ActualPrice) " +
                                                      "VALUES (@BookingReservationID, @RoomID,  CAST(@StartDate AS Date),  CAST(@EndDate AS Date), @ActualPrice)";
 
-        public static void BookingRoom(BookingReservation booking, BookingDetail bookingDetails)
+        public static bool BookingRoom(BookingReservation booking, BookingDetail bookingDetails)
         {
             SqlParameter[] parametersForBooking = new SqlParameter[] {
                 new SqlParameter("@BookingReservationID", booking.BookingReservationID),
@@ -41,6 +41,7 @@ namespace DataAccessLayer
 
             DBContext.ExecuteNonQuerry(BOOKING_QUERY, parametersForBooking);
             DBContext.ExecuteNonQuerry(DETAIL_BOOKING_QUERY, parametersForDetail);
+            return true;
         }
 
         public static List<BookingReservation> GetAllBooking()

@@ -11,9 +11,9 @@ namespace Services
     public class BookingService : IBookingService
     {
         private readonly IBookingRepository iBookingRepository = new BookingRepository();
-        public void BookRoom(BookingReservation booking, BookingDetail bookingDetails)
+        public bool BookRoom(BookingReservation booking, BookingDetail bookingDetails)
         {
-            iBookingRepository.BookRoom(booking, bookingDetails);
+            return iBookingRepository.BookRoom(booking, bookingDetails);
         }
 
         public List<BookingReservation> GetALlBooking()

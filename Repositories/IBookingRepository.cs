@@ -9,7 +9,7 @@ namespace Repositories
 {
     public interface IBookingRepository
     {
-        void BookRoom(BookingReservation booking, BookingDetail bookingDetails);
+        bool BookRoom(BookingReservation booking, BookingDetail bookingDetails);
         List<BookingReservation> GetAllBooking();
     }
 }

@@ -10,7 +10,7 @@ namespace Repositories
 {
     public class BookingRepository : IBookingRepository
     {
-        public void BookRoom(BookingReservation booking, BookingDetail bookingDetails) => BookingDAO.BookingRoom(booking, bookingDetails);
+        public bool BookRoom(BookingReservation booking, BookingDetail bookingDetails) => BookingDAO.BookingRoom(booking, bookingDetails);
 
         public List<BookingReservation> GetAllBooking() => BookingDAO.GetAllBooking();
     }

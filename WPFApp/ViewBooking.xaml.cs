@@ -61,8 +61,18 @@ namespace WPFApp
                 ActualPrice = decimal.Parse(ActualPriceTextBox.Text)
             };
 
-            _bookingService.BookRoom(newBooking, newBookingDetail);
-            LoadBookings();
+            bool isSuccess = _bookingService.BookRoom(newBooking, newBookingDetail);
+
+            if (isSuccess)
+            {
+                MessageBox.Show("Booking created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("Booking creation failed. Please check the details and try again.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            ClearForm();
         }
 
         private void ClearForm()

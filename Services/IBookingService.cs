@@ -9,7 +9,7 @@ namespace Services
 {
     public interface IBookingService
     {
-        void BookRoom(BookingReservation booking, BookingDetail bookingDetails);
+        bool BookRoom(BookingReservation booking, BookingDetail bookingDetails);
 
         List<BookingReservation> GetALlBooking();
     }

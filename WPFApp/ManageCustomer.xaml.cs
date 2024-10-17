@@ -37,7 +37,7 @@ namespace WPFApp
             CustomerListBox.ItemsSource = customers;
         }
 
-       
+
         private void CustomerListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             if (CustomerListBox.SelectedItem is Customer customer)
@@ -67,8 +67,8 @@ namespace WPFApp
                 Telephone = TelephoneTextBox.Text,
                 EmailAddress = EmailTextBox.Text,
                 CustomerBirthday = BirthdayPicker.SelectedDate ?? DateTime.Now,
-                CustomerStatus = CustomerStatus.Active, 
-                Password = password 
+                CustomerStatus = CustomerStatus.Active,
+                Password = password
             };
 
             _customerService.CreateCustomer(newCustomer);
